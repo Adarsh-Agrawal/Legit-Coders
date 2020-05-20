@@ -1,0 +1,26 @@
+private int solution(long from, long to) {
+		
+		int fib[] = new int[10000];
+		fib[0]=0;
+		fib[1]=1;
+		for(int i=2;i<=get_Pisano(10);i++) {
+			fib[i] = (fib[i-1]+fib[i-2])%10;
+		}
+		int start=(int) from%get_Pisano(10);
+		int end = (int) to%get_Pisano(10);
+		int ans=0;
+		if(start<=end) {
+			for(int i=start;i<=end;i++) {
+				ans = (ans+fib[i])%10;
+			}
+		}
+		else {
+			for(int i=start;i<get_Pisano(10);i++) {
+				ans = (ans+fib[i])%10;
+			}
+			for(int i = 0;i<=end;i++) {
+				ans = (ans+fib[i])%10;
+			}
+		}
+		return ans;
+	}
