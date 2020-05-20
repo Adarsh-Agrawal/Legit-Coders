@@ -1,0 +1,11 @@
+private int get_Pisano(int m) {
+		int i=0,c=0,a=0,b=1;
+		for( i = 0;i<m*m;i++) {
+			c=(a+b)%m;
+			a=b;
+			b=c;
+			if(a==0&&b==1)
+				break;
+		}
+		return i+1;
+	}
